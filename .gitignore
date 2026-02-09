@@ -1,0 +1,44 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.glg
+*.ist
+
+# Generated breakdown data (regenerated on compile)
+*.breakdown
+
+# Compiled PDFs (regenerated on compile)
+*.pdf
+
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/
+
+# Editor and IDE files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

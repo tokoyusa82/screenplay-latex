@@ -1,0 +1,244 @@
+%% example.tex — Sample screenplay using screenplay.cls
+%%
+%% Compile with: pdflatex example.tex  (run twice for breakdown table)
+%%
+%% Toggle pre-production mode:
+%%   \documentclass[preproduction]{screenplay}   ← annotations visible
+%%   \documentclass{screenplay}                  ← clean shooting script
+%%
+
+\documentclass{screenplay}
+
+% --- Revision info (optional) ---
+% \revisioncolor{pink}           % Uncomment for colored revision pages
+% \revisioninfo{2nd Draft}{February 8, 2026}
+
+% --- Title page metadata ---
+\screentitle{The Last Light}
+\screenauthor{Jane Doe}
+\screencontact{%
+  Jane Doe\\
+  123 Sunset Blvd\\
+  Los Angeles, CA 90028\\
+  jane@example.com\\
+  (555) 867-5309%
+}
+\screendraftinfo{First Draft --- February 2026}
+
+\begin{document}
+
+\maketitlepage
+
+% --- Pre-production legend (only shows in preproduction mode) ---
+\preprodlegend
+
+% ================================================================
+% ACT ONE
+% ================================================================
+
+\slugline[1]{EXT.}{COASTAL HIGHWAY --- AERIAL}{DAWN}
+
+\shot{WIDE AERIAL SHOT}
+\cam{DRONE TRACKING, moving south along coastline}
+
+\action{%
+  A winding highway hugs the cliffs above a restless ocean.
+  \setnote{Practical location: Big Sur, CA. Need permits for drone.}
+  A single pair of headlights cuts through the pre-dawn fog.
+  \lighting{Natural pre-dawn blue, fog diffusion.}
+}
+
+\trans{CUT TO:}
+
+% ----------------------------------------------------------------
+
+\slugline[2]{INT.}{SARAH'S CAR --- MOVING}{DAWN}
+
+\shot{CLOSE-UP}
+\cam{MOUNTED DASHBOARD CAM}
+
+\action{%
+  SARAH CHEN (30s, sharp eyes, tired face) grips the steering wheel
+  of a battered \prop{1998 Honda Civic}. A \prop{paper coffee cup}
+  sits in the cupholder, long cold. She wears a
+  \wardrobe{wrinkled blazer over a faded band t-shirt} --- someone
+  who left in a hurry.
+  \lighting{Dashboard glow on face, blue-grey ambient from windows.}
+}
+
+\action{%
+  Her phone buzzes. She glances at it --- \prop{cracked iPhone} on
+  the passenger seat displaying ``DAD --- 3 Missed Calls.'' She
+  silences it without answering.
+  \sfx{Phone vibration buzz, two short pulses.}
+}
+
+\character{SARAH}
+\paren{to herself, barely audible}
+\dialogue{Not yet.}
+
+\action{%
+  She reaches for the \prop{coffee cup}, takes a sip, grimaces.
+  \cam{SLOW PUSH IN on her reflection in the rearview mirror.}
+}
+
+\trans{SMASH CUT TO:}
+
+% ----------------------------------------------------------------
+
+\slugline[3]{EXT.}{PINE RIDGE MOTEL --- PARKING LOT}{MORNING}
+
+\shot{WIDE SHOT}
+
+\action{%
+  \setnote{Motel exterior: run-down, 1970s architecture, neon sign
+  partially burnt out reading ``P\_NE R\_DGE MOT\_L.''}
+  The Civic pulls into a near-empty lot. Only two other cars: a
+  \prop{rusted pickup truck} and a \prop{black SUV with tinted
+  windows}. The SUV feels conspicuous.
+  \lighting{Harsh morning sun, long shadows from the motel sign.}
+}
+
+\action{%
+  Sarah steps out, stretches. She pulls a \prop{leather duffel bag}
+  from the back seat and walks toward the office.
+  \sfx{Gravel crunch underfoot. Distant highway traffic.}
+  \vfx{Remove modern cell tower visible behind motel --- period
+  accuracy.}
+}
+
+% ----------------------------------------------------------------
+
+\slugline[4]{INT.}{PINE RIDGE MOTEL --- FRONT OFFICE}{MORNING}
+
+\cam{STEADICAM follows Sarah through the door}
+
+\action{%
+  \setnote{Interior: wood paneling, hunting trophies, dusty plastic
+  plants. A \prop{tube TV} plays the local news with the sound off.}
+  A bell jingles as Sarah enters. Behind the counter sits EARL
+  (60s, leathery skin, reading glasses perched on his nose),
+  flipping through a \prop{fishing magazine}.
+  \wardrobe{Earl: flannel shirt, suspenders, reading glasses on
+  a chain.}
+}
+
+\character{EARL}
+\paren{not looking up}
+\dialogue{Single or double.}
+
+\character{SARAH}
+\dialogue{Single. Something in the back, if you have it.}
+
+\character{EARL}
+\paren{finally looking up, studying her}
+\dialogue{Running from something or running to something?}
+
+\revised{%
+\character{SARAH}
+\paren{a beat, then a tired smile}
+\dialogue{Ask me when I check out.}
+}
+
+\action{%
+  \shot{INSERT} --- Earl slides a \prop{brass room key} (not a
+  keycard --- old school) across the counter. The tag reads
+  \prop{Room 7}.
+  \sfx{Metal key sliding on Formica counter.}
+}
+
+\trans{CUT TO:}
+
+% ----------------------------------------------------------------
+
+\slugline[5]{INT.}{MOTEL ROOM 7}{MORNING}
+
+\shot{WIDE establishing, then MEDIUM on Sarah}
+
+\action{%
+  \setnote{Room: faded floral bedspread, wood-grain furniture,
+  landscape painting bolted to wall. Bathroom visible through
+  half-open door.}
+  Sarah drops the \prop{duffel bag} on the bed. She crosses to the
+  window, parts the curtains. Through the glass: the \prop{black
+  SUV} hasn't moved.
+  \lighting{Venetian blind shadows across Sarah's face --- film
+  noir callback.}
+  \cam{SLOW DOLLY from behind Sarah toward the window, rack focus
+  from her shoulder to the SUV outside.}
+}
+
+\character{SARAH}
+\paren{under her breath}
+\dialogue{Okay. So it's like that.}
+
+\action{%
+  She unzips the \prop{duffel bag}. Inside: clothes, a
+  \prop{laptop}, a \prop{manila envelope thick with documents}, and
+  at the bottom, wrapped in a cloth --- a \prop{compact handgun}.
+  \shot{EXTREME CLOSE-UP} on her hand hovering over the gun. She
+  chooses the \prop{manila envelope} instead.
+  \sfx{Zipper opening. Rustling fabric. Paper sliding.}
+}
+
+\trans{CUT TO:}
+
+% ----------------------------------------------------------------
+
+\slugline[5A]{INT.}{MOTEL ROOM 7}{MOMENTS LATER}
+
+\action{%
+  Documents spread across the bed.
+  \cam{TOP-DOWN OVERHEAD SHOT looking straight down at the
+  documents.}
+  We glimpse fragments: \prop{financial spreadsheets},
+  \prop{photographs of a corporate building}, a
+  \prop{hand-drawn map} with red circles. Sarah arranges them
+  methodically, building a case only she understands.
+  \vfx{Insert legible text on document close-ups in post ---
+  hero props will be blank on set.}
+}
+
+% --- Dual dialogue example ---
+
+\action{%
+  Her phone rings again. This time she answers.
+  \sfx{Phone ringtone --- generic, not personalized. She never
+  bothered.}
+}
+
+\dualdia
+  {SARAH}
+  {Dad, I can't talk right now. I'm handling it.}
+  {FATHER (V.O.)}
+  {Handling it? Sarah, you took the \textit{files}. Do you have any idea---}
+
+\character{SARAH}
+\dialogue{I have every idea. That's the problem.}
+
+\action{She hangs up. Stares at the documents.
+  \cam{SLOW ZOOM into the photograph of the corporate building.}
+  \sfx{Dial tone hum, then silence.}
+}
+
+\trans{FADE TO BLACK.}
+
+% ================================================================
+% Script note example (visible only in preproduction mode)
+% ================================================================
+
+\scriptnote{%
+  END OF TEASER / COLD OPEN. Estimated runtime: 4--5 minutes.
+  Scenes 1--5A establish Sarah's isolation, the mystery of the
+  SUV, and the stakes (files, gun, estranged father). The motel
+  becomes our primary location for Act One.
+  \textbf{Location scout needed for Pine Ridge Motel exterior.}
+}
+
+% ================================================================
+% BREAKDOWN TABLE (compile twice to populate)
+% ================================================================
+
+\printbreakdownraw
+
+\end{document}
